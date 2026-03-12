@@ -946,22 +946,18 @@
         const body = audioCtx.createOscillator();
         const tine = audioCtx.createOscillator();
         const tineGain = audioCtx.createGain();
-        const tremolo = audioCtx.createOscillator();
-        const tremoloGain = audioCtx.createGain();
+        
         const filter = audioCtx.createBiquadFilter();
 
         tone.type = "triangle";
         body.type = "sine";
         tine.type = "sine";
-        tremolo.type = "sine";
+        
 
         tone.frequency.setValueAtTime(freq, startTime);
         body.frequency.setValueAtTime(freq * 2, startTime);
         tine.frequency.setValueAtTime(freq * 4.02, startTime);
-        tremolo.frequency.setValueAtTime(2.5, startTime); 
-        tremoloGain.gain.setValueAtTime(0.005, startTime);
-        tremolo.connect(tremoloGain);
-        tremoloGain.connect(noteOut.gain);
+        
 
         filter.type = "lowpass";
         filter.frequency.setValueAtTime(4300, startTime);
@@ -977,7 +973,7 @@
         tineGain.connect(filter);
         filter.connect(noteOut);
 
-        [tone, body, tine, tremolo].forEach(osc => { osc.start(startTime); osc.stop(stopTime); });
+        [tone, body, tine].forEach(osc => { osc.start(startTime); osc.stop(stopTime); });
         return;
       }
 
