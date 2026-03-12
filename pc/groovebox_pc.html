@@ -958,8 +958,8 @@
         tone.frequency.setValueAtTime(freq, startTime);
         body.frequency.setValueAtTime(freq * 2, startTime);
         tine.frequency.setValueAtTime(freq * 4.02, startTime);
-        tremolo.frequency.setValueAtTime(5.2, startTime);
-        tremoloGain.gain.setValueAtTime(0.018, startTime);
+        tremolo.frequency.setValueAtTime(2.5, startTime); 
+        tremoloGain.gain.setValueAtTime(0.005, startTime);
         tremolo.connect(tremoloGain);
         tremoloGain.connect(noteOut.gain);
 
