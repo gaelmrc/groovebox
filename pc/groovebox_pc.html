@@ -680,7 +680,7 @@
       <section class="tracks-panel">
         <div class="section-header">
           <div class="section-header-title">Pistes instrumentales</div>
-          <div class="badge">Plusieurs pistes en parallèle, y compris des basses</div>
+          <div class="badge">Plusieurs pistes en parallèle</div>
         </div>
         <div id="trackList" class="track-list"></div>
       </section>
@@ -1534,6 +1534,11 @@
           renderGrid();
           clearChordVisuals();
           document.getElementById("grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          const el = document.getElementById("grid");
+          window.scrollTo({
+            top: el.offsetTop - 120, // ajuste la valeur
+            behavior: "smooth"
+          });
           const track = instrumentTracks.find(item => item.id === targetId);
           if (track) setStatusLine(`Édition ouverte : ${track.name}.`);
         }
