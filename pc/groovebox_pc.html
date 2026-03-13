@@ -1534,11 +1534,9 @@
           renderGrid();
           clearChordVisuals();
           document.getElementById("grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
-          const el = document.getElementById("grid");
-          window.scrollTo({
-            top: el.offsetTop - 120, // ajuste la valeur
-            behavior: "smooth"
-          });
+          setTimeout(() => {
+            window.scrollBy({ top: -120, behavior: "smooth" });
+          }, 200);
           const track = instrumentTracks.find(item => item.id === targetId);
           if (track) setStatusLine(`Édition ouverte : ${track.name}.`);
         }
